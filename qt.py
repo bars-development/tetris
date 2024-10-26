@@ -8,7 +8,7 @@ from PyQt6.QtWidgets import QWidget, QLabel, QVBoxLayout, QPushButton
 from PyQt6.QtGui import QPixmap, QImage
 from PyQt6.QtCore import QTimer
 import numpy as np
-import time
+# import time
 
 class TetrisUI(QWidget):
     def __init__(self, game:Game):

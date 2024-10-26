@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-import pygame
+# import pygame
 
 class Polyomino:
     """Un Polyomino est une figure plane composée de carrés unitaires ayant au moins un côté commun"""
@@ -27,11 +27,11 @@ class Polyomino:
     def multiply(self, k):
         # self.data = self.data/np.max(self.data)
         self.data = self.data*k
-    def drawPygame(self, window, coord: tuple, width:int=10, color:tuple=(0, 0, 255))->None:
-        for i in range(self.height):
-            for j in range(self.width):
-                if(self.data[i, j] == 1):
-                    pygame.draw.rect(window, color, (coord[0]+j*width, coord[1]+i*width, width, width))
+    # def drawPygame(self, window, coord: tuple, width:int=10, color:tuple=(0, 0, 255))->None:
+    #     for i in range(self.height):
+    #         for j in range(self.width):
+    #             if(self.data[i, j] == 1):
+    #                 pygame.draw.rect(window, color, (coord[0]+j*width, coord[1]+i*width, width, width))
     def draw(self, width, color, offset:int=0):
         drawable = np.zeros((np.sum(self.data!=0)*width, 10*width, 3), dtype=np.uint8)+255
         for i in range(self.height):
@@ -82,22 +82,22 @@ class PolyominoClass:
         self.maxh = max([p.height for p in self.polyominos])
     def getMembers(self)->list():
         return list()
-    def draw(self, screen, coord:tuple, width:int=10, vertical:bool=True):
-        w, h = pygame.display.get_surface().get_size()
-        curj, curi = coord
-        for poly in self.polyominos:
-            poly.drawPygame(screen, (curj, curi), width)
-            if(vertical):
-                curi+=self.maxh*width+width
-                if(curi+self.maxh*width+width>h):
-                    curi = coord[1]
-                    curj += self.maxw*width+width
+    # def draw(self, screen, coord:tuple, width:int=10, vertical:bool=True):
+    #     w, h = pygame.display.get_surface().get_size()
+    #     curj, curi = coord
+    #     for poly in self.polyominos:
+    #         poly.drawPygame(screen, (curj, curi), width)
+    #         if(vertical):
+    #             curi+=self.maxh*width+width
+    #             if(curi+self.maxh*width+width>h):
+    #                 curi = coord[1]
+    #                 curj += self.maxw*width+width
         
-            else:
-                curj+=self.maxw*width+width
-                if(curj+self.maxw*width+width>w):
-                    curj = coord[0]
-                    curi += self.maxh*width+width
+    #         else:
+    #             curj+=self.maxw*width+width
+    #             if(curj+self.maxw*width+width>w):
+    #                 curj = coord[0]
+    #                 curi += self.maxh*width+width
         
 class RotationClass(PolyominoClass):
     """La classe de rotation d’un polyomino P est l’ensemble des polyominos que l’on obtient par rotations successives de 90 degrés de P ."""

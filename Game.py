@@ -1,10 +1,10 @@
 from Polyomino import Polyomino, extractClasses, RotationClass, CompleteClass, PolyominoClass
 import numpy as np
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 import sys
-import pygame
+# import pygame
 import random
-from PIL import Image
+# from PIL import Image
 
 
 
