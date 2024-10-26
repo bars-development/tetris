@@ -1,0 +1,26 @@
+from Game import Game
+from Polyomino import constructPolyominos
+from qt import TetrisUI
+from PyQt6.QtWidgets import QApplication
+import sys
+
+
+
+app = QApplication(sys.argv)
+g  = Game(20,10)
+allowed = constructPolyominos(4)
+g.set_allowed(allowed, 'r')
+
+default_params = (20.7666157537104, 167.815231918488, 102.71802382440983, 78.23774210413393, 7.4428834302762095)
+params1 = (22.282714147680004, 155.7514334376, 105.86223816000002, 78.22161393631201, 7.446666938831999)
+params2 = (20.1698308, 171.29246904, 48.965607919199996, 79.85072928000001, 25.6483876572)
+params3 = (20.7666157537104, 167.815231918488, 102.71802382440983, 78.23774210413393, 7.4428834302762095)
+params4 = (9.679, 168.635, 170.062, 99.783, 30.574)
+params5 =  (21.184109492056937, 159.52515946171468, 106.90012891742406, 78.20644700729228, 7.517312264578972)
+bad_params = (10,20,50,10,10)
+
+g.set_ai_params(*default_params)
+tetris = TetrisUI(g)
+tetris.show()
+
+sys.exit(app.exec())
